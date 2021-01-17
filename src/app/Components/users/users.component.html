@@ -1,0 +1,27 @@
+<div *ngIf = "users.length > 0 ; else NoUsers">
+    <table class="table has-background-success-light has-text-primary-dark is-fullwidth is-hoverable is-striped">
+        <thead>
+          <tr>
+            <th *ngFor = "let column of headers">{{column}}</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of users">
+                <!-- 
+                    <td *ngFor = "let column of values">
+                        {{user[column]}}
+                    </td>
+                -->
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td appHighlighter>{{user.email}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #NoUsers>
+    <p class="no-users has-text-danger-dark">
+        <strong> No User Exist</strong>
+    </p>
+</ng-template>
